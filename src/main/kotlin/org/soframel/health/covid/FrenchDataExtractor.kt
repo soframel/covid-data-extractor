@@ -18,7 +18,7 @@ class FrenchDataExtractor: QuarkusApplication {
 
 	 override fun run(args: Array<String>): Int {
 		//this.extractFrenchDataForToday();
-		 val startOfPandemy=LocalDate.of(2020, 4, 12)
+		 val startOfPandemy=LocalDate.of(2020, 8, 24)
 		 this.extractFrenchDataSinceStartDate(startOfPandemy)
 		 return 0;
 	}
@@ -35,7 +35,7 @@ class FrenchDataExtractor: QuarkusApplication {
 
 	fun extractFrenchDataForGivenDay(day: LocalDate): CovidDailyData?{
 		val result=frenchClient.getDataAtDate(day)
-		val dataList=result.franceGlobalLiveData;
+		val dataList=result.allFranceDataByDate;
 		println("loaded "+ dataList.size +" entries for day "+day)
 		//TODO: find the ministere global data in the list
 		if(dataList.size>=1){
