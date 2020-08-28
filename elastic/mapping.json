@@ -48,6 +48,12 @@
             }
           }
         }
+      },
+      "totalCasesPer100kInhabitants": {
+        "type": "integer"
+      },
+      "totalDeathsPer100kInhabitants": {
+        "type": "integer"
       }
     }
   }

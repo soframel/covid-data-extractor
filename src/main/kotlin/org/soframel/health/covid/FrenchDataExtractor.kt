@@ -23,7 +23,7 @@ class FrenchDataExtractor: QuarkusApplication {
 
 	 override fun run(args: Array<String>): Int {
 		//this.extractFrenchDataForToday();
-		 val startOfPandemy=LocalDate.of(2020, 8, 24)
+		 val startOfPandemy=LocalDate.of(2020, 3, 1)
 		 this.extractFrenchDataSinceStartDate(startOfPandemy)
 		 this.extractFrenchDataForToday()
 
@@ -34,22 +34,35 @@ class FrenchDataExtractor: QuarkusApplication {
 		val result=frenchClient.getTodaysData();
 		val dataList=result.franceGlobalLiveData;
 		println("loaded "+ dataList.size +" entries")
-		if(dataList.size>=1){
-			val data= dataList.get(0)
-			frenchDataElasticSender.sendDailyDataToElastic(data)
+		if(dataList.size>=0){
+			val data= this.findMinistereSanteData(dataList)
+			if(data!=null)
+				frenchDataElasticSender.sendDailyDataToElastic(data)
 			return data
 		}
 		return null
+	}
+
+	fun findMinistereSanteData(list: List<FrenchCovidDailyData>): FrenchCovidDailyData?{
+		var foundData: FrenchCovidDailyData?=null
+		var it=list.iterator()
+		while(it.hasNext() && foundData==null){
+			val data=it.next()
+			if("ministere-sante".equals(data.sourceType)){
+				foundData=data
+			}
+		}
+		return foundData
 	}
 
 	fun extractFrenchDataForGivenDay(day: LocalDate): FrenchCovidDailyData?{
 		val result=frenchClient.getDataAtDate(day)
 		val dataList=result.allFranceDataByDate;
 		println("loaded "+ dataList.size +" entries for day "+day)
-		//TODO: find the ministere global data in the list
-		if(dataList.size>=1){
-			val data=dataList.get(0)
-			frenchDataElasticSender.sendDailyDataToElastic(data)
+		if(dataList.size>0){
+			val data= this.findMinistereSanteData(dataList)
+			if(data!=null)
+				frenchDataElasticSender.sendDailyDataToElastic(data)
 			return data
 		}
 		return null
