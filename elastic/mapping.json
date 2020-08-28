@@ -1,0 +1,54 @@
+{
+  "mappings": {
+    "properties": {
+      "date": {
+        "type": "date"
+      },
+      "source": {
+        "type": "keyword"
+      },
+      "country": {
+        "type": "keyword"
+      },
+      "region":  {
+        "type": "keyword"
+      },
+      "totalCases": {
+        "type": "integer"
+      },
+      "totalDeaths": {
+        "type": "integer"
+      },
+      "currentlyHospitalized": {
+        "type": "integer"
+      },
+      "currentlyInReanimation": {
+        "type": "integer"
+      },
+      "totalCured": {
+        "type": "integer"
+      },
+      "newHospitalisations": {
+        "type": "integer"
+      },
+      "newReanimations": {
+        "type": "integer"
+      },
+      "victims": {
+        "properties": {
+          "victim": {
+            "type": "nested",
+            "properties": {
+              "age": {
+                "type": "integer"
+              },
+              "gender": {
+                "type": "keyword"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

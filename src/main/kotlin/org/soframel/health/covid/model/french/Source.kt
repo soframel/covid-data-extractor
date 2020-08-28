@@ -1,4 +1,4 @@
-package org.soframel.health.covid.model
+package org.soframel.health.covid.model.french
 
 class Source {
     val nom: String=""

@@ -5,9 +5,8 @@ import javax.ws.rs.GET
 import javax.ws.rs.Produces
 import javax.ws.rs.QueryParam
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient
-import org.soframel.health.covid.model.FrenchResult
+import org.soframel.health.covid.model.french.FrenchResult
 import java.time.LocalDate
-import java.util.Date
 import javax.enterprise.inject.Default
 
 @Path("/")

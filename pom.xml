@@ -18,6 +18,7 @@
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
     <quarkus.platform.version>1.7.0.Final</quarkus.platform.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
+    <elastic.version>7.9.0</elastic.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -48,7 +49,12 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-annotations</artifactId>
-     <!-- <version>2.11.2</version>-->
+    </dependency>
+
+    <dependency>
+      <groupId>org.elasticsearch.client</groupId>
+      <artifactId>elasticsearch-rest-high-level-client</artifactId>
+      <version>${elastic.version}</version>
     </dependency>
 
     <dependency>
@@ -69,6 +75,15 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-kotlin</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jboss.logging</groupId>
+      <artifactId>commons-logging-jboss-logging</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.logmanager</groupId>
+      <artifactId>log4j2-jboss-logmanager</artifactId>
     </dependency>
   </dependencies>
   <build>
