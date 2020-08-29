@@ -1,4 +1,4 @@
-package org.soframel.health.covid
+package org.soframel.health.covid.service
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import javax.inject.Inject;
@@ -8,10 +8,11 @@ import org.soframel.health.covid.model.french.FrenchCovidDailyData
 import org.soframel.health.covid.service.FrenchDataElasticSender
 import java.time.LocalDate
 import java.util.*
+import javax.enterprise.context.ApplicationScoped
 import javax.enterprise.inject.Default
 
-@io.quarkus.runtime.annotations.QuarkusMain
-class FrenchDataExtractor: QuarkusApplication {
+@ApplicationScoped
+class FrenchDataExtractor {
 
 	@Inject
 	@field: RestClient
@@ -21,14 +22,6 @@ class FrenchDataExtractor: QuarkusApplication {
 	@field: Default
 	lateinit var frenchDataElasticSender: FrenchDataElasticSender
 
-	 override fun run(args: Array<String>): Int {
-		//this.extractFrenchDataForToday();
-		 val startOfPandemy=LocalDate.of(2020, 3, 1)
-		 this.extractFrenchDataSinceStartDate(startOfPandemy)
-		 this.extractFrenchDataForToday()
-
-		 return 0;
-	}
 	
 	fun extractFrenchDataForToday(): FrenchCovidDailyData?{
 		val result=frenchClient.getTodaysData();
