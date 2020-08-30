@@ -1,37 +1,1822 @@
 {
-	"FranceGlobalLiveData": [
-		{
-			"date": "2020-08-23",
-			"source": {
-				"nom": "Ministère des Solidarités et de la Santé"
-			},
-			"sourceType": "ministere-sante",
-			"casConfirmes": 242899,
-			"deces": 20002,
-			"decesEhpad": 10511,
-			"hospitalises": 4709,
-			"reanimation": 383,
-			"gueris": 84973,
-			"casConfirmesEhpad": 39930,
-			"nouvellesHospitalisations": 29,
-			"nouvellesReanimations": 6,
-			"nom": "France",
-			"code": "FRA"
-		},
-		{
-			"code": "FRA",
-			"nom": "France",
-			"date": "2020-08-23",
-			"hospitalises": 4683,
-			"reanimation": 371,
-			"nouvellesHospitalisations": 29,
-			"nouvellesReanimations": 6,
-			"deces": 19981,
-			"gueris": 84946,
-			"source": {
-				"nom": "OpenCOVID19-fr"
-			},
-			"sourceType": "opencovid19-fr"
-		}
-	]
+  "allFranceDataByDate": [
+    {
+      "code": "DEP-01",
+      "nom": "Ain",
+      "date": "2020-08-20",
+      "hospitalises": 25,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 2,
+      "nouvellesReanimations": 0,
+      "deces": 105,
+      "gueris": 460,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-02",
+      "nom": "Aisne",
+      "date": "2020-08-20",
+      "hospitalises": 51,
+      "reanimation": 4,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 286,
+      "gueris": 1112,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-03",
+      "nom": "Allier",
+      "date": "2020-08-20",
+      "hospitalises": 1,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 2,
+      "nouvellesReanimations": 0,
+      "deces": 41,
+      "gueris": 207,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-04",
+      "nom": "Alpes-de-Haute-Provence",
+      "date": "2020-08-20",
+      "hospitalises": 3,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 13,
+      "gueris": 133,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-05",
+      "nom": "Hautes-Alpes",
+      "date": "2020-08-20",
+      "hospitalises": 3,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 18,
+      "gueris": 139,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-06",
+      "nom": "Alpes-Maritimes",
+      "date": "2020-08-20",
+      "hospitalises": 70,
+      "reanimation": 3,
+      "nouvellesHospitalisations": 4,
+      "nouvellesReanimations": 2,
+      "deces": 191,
+      "gueris": 823,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-07",
+      "nom": "Ardèche",
+      "date": "2020-08-20",
+      "hospitalises": 14,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 3,
+      "nouvellesReanimations": 0,
+      "deces": 112,
+      "gueris": 443,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-08",
+      "nom": "Ardennes",
+      "date": "2020-08-20",
+      "hospitalises": 4,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 60,
+      "gueris": 220,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-09",
+      "nom": "Ariège",
+      "date": "2020-08-20",
+      "hospitalises": 1,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 2,
+      "gueris": 33,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-10",
+      "nom": "Aube",
+      "date": "2020-08-20",
+      "hospitalises": 23,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 137,
+      "gueris": 640,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-11",
+      "nom": "Aude",
+      "date": "2020-08-20",
+      "hospitalises": 4,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 59,
+      "gueris": 237,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-12",
+      "nom": "Aveyron",
+      "date": "2020-08-20",
+      "hospitalises": 2,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 24,
+      "gueris": 150,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-13",
+      "nom": "Bouches-du-Rhône",
+      "date": "2020-08-20",
+      "hospitalises": 206,
+      "reanimation": 13,
+      "nouvellesHospitalisations": 28,
+      "nouvellesReanimations": 0,
+      "deces": 577,
+      "gueris": 3674,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-14",
+      "nom": "Calvados",
+      "date": "2020-08-20",
+      "hospitalises": 11,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 2,
+      "nouvellesReanimations": 0,
+      "deces": 85,
+      "gueris": 342,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-15",
+      "nom": "Cantal",
+      "date": "2020-08-20",
+      "hospitalises": 2,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 9,
+      "gueris": 53,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-16",
+      "nom": "Charente",
+      "date": "2020-08-20",
+      "hospitalises": 1,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 13,
+      "gueris": 61,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-17",
+      "nom": "Charente-Maritime",
+      "date": "2020-08-20",
+      "hospitalises": 7,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 51,
+      "gueris": 149,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-18",
+      "nom": "Cher",
+      "date": "2020-08-20",
+      "hospitalises": 1,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 85,
+      "gueris": 205,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-19",
+      "nom": "Corrèze",
+      "date": "2020-08-20",
+      "hospitalises": 2,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 37,
+      "gueris": 159,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-21",
+      "nom": "Côte-d'Or",
+      "date": "2020-08-20",
+      "hospitalises": 3,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 2,
+      "nouvellesReanimations": 1,
+      "deces": 251,
+      "gueris": 958,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-22",
+      "nom": "Côtes-d'Armor",
+      "date": "2020-08-20",
+      "hospitalises": 5,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 39,
+      "gueris": 230,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-23",
+      "nom": "Creuse",
+      "date": "2020-08-20",
+      "hospitalises": 2,
+      "reanimation": 2,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 15,
+      "gueris": 84,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-24",
+      "nom": "Dordogne",
+      "date": "2020-08-20",
+      "hospitalises": 1,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 14,
+      "gueris": 98,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-25",
+      "nom": "Doubs",
+      "date": "2020-08-20",
+      "hospitalises": 1,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 151,
+      "gueris": 643,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-26",
+      "nom": "Drôme",
+      "date": "2020-08-20",
+      "hospitalises": 6,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 128,
+      "gueris": 540,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-27",
+      "nom": "Eure",
+      "date": "2020-08-20",
+      "hospitalises": 15,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 85,
+      "gueris": 272,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-28",
+      "nom": "Eure-et-Loir",
+      "date": "2020-08-20",
+      "hospitalises": 7,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 145,
+      "gueris": 601,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-29",
+      "nom": "Finistère",
+      "date": "2020-08-20",
+      "hospitalises": 6,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 44,
+      "gueris": 196,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-2A",
+      "nom": "Corse-du-Sud",
+      "date": "2020-08-20",
+      "hospitalises": 4,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 48,
+      "gueris": 148,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-2B",
+      "nom": "Haute-Corse",
+      "date": "2020-08-20",
+      "hospitalises": 0,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 11,
+      "gueris": 108,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-30",
+      "nom": "Gard",
+      "date": "2020-08-20",
+      "hospitalises": 7,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 98,
+      "gueris": 376,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-31",
+      "nom": "Haute-Garonne",
+      "date": "2020-08-20",
+      "hospitalises": 37,
+      "reanimation": 3,
+      "nouvellesHospitalisations": 4,
+      "nouvellesReanimations": 0,
+      "deces": 76,
+      "gueris": 698,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-32",
+      "nom": "Gers",
+      "date": "2020-08-20",
+      "hospitalises": 2,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 23,
+      "gueris": 88,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-33",
+      "nom": "Gironde",
+      "date": "2020-08-20",
+      "hospitalises": 39,
+      "reanimation": 5,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 162,
+      "gueris": 1005,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-34",
+      "nom": "Hérault",
+      "date": "2020-08-20",
+      "hospitalises": 17,
+      "reanimation": 4,
+      "nouvellesHospitalisations": 3,
+      "nouvellesReanimations": 1,
+      "deces": 123,
+      "gueris": 742,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-35",
+      "nom": "Ille-et-Vilaine",
+      "date": "2020-08-20",
+      "hospitalises": 34,
+      "reanimation": 3,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 1,
+      "deces": 89,
+      "gueris": 504,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-36",
+      "nom": "Indre",
+      "date": "2020-08-20",
+      "hospitalises": 8,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 82,
+      "gueris": 193,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-37",
+      "nom": "Indre-et-Loire",
+      "date": "2020-08-20",
+      "hospitalises": 12,
+      "reanimation": 2,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 91,
+      "gueris": 377,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-38",
+      "nom": "Isère",
+      "date": "2020-08-20",
+      "hospitalises": 23,
+      "reanimation": 2,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 153,
+      "gueris": 727,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-39",
+      "nom": "Jura",
+      "date": "2020-08-20",
+      "hospitalises": 0,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 60,
+      "gueris": 328,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-40",
+      "nom": "Landes",
+      "date": "2020-08-20",
+      "hospitalises": 2,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 13,
+      "gueris": 76,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-41",
+      "nom": "Loir-et-Cher",
+      "date": "2020-08-20",
+      "hospitalises": 11,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 64,
+      "gueris": 330,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-42",
+      "nom": "Loire",
+      "date": "2020-08-20",
+      "hospitalises": 46,
+      "reanimation": 3,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 1,
+      "deces": 248,
+      "gueris": 1015,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-43",
+      "nom": "Haute-Loire",
+      "date": "2020-08-20",
+      "hospitalises": 1,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 18,
+      "gueris": 107,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-44",
+      "nom": "Loire-Atlantique",
+      "date": "2020-08-20",
+      "hospitalises": 21,
+      "reanimation": 4,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 168,
+      "gueris": 763,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-45",
+      "nom": "Loiret",
+      "date": "2020-08-20",
+      "hospitalises": 20,
+      "reanimation": 2,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 103,
+      "gueris": 657,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-46",
+      "nom": "Lot",
+      "date": "2020-08-20",
+      "hospitalises": 1,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 22,
+      "gueris": 70,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-47",
+      "nom": "Lot-et-Garonne",
+      "date": "2020-08-20",
+      "hospitalises": 3,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 11,
+      "gueris": 82,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-48",
+      "nom": "Lozère",
+      "date": "2020-08-20",
+      "hospitalises": 1,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 1,
+      "gueris": 24,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-49",
+      "nom": "Maine-et-Loire",
+      "date": "2020-08-20",
+      "hospitalises": 23,
+      "reanimation": 4,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 142,
+      "gueris": 668,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-50",
+      "nom": "Manche",
+      "date": "2020-08-20",
+      "hospitalises": 10,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 50,
+      "gueris": 168,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-51",
+      "nom": "Marne",
+      "date": "2020-08-20",
+      "hospitalises": 49,
+      "reanimation": 6,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 270,
+      "gueris": 1039,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-52",
+      "nom": "Haute-Marne",
+      "date": "2020-08-20",
+      "hospitalises": 18,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 90,
+      "gueris": 260,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-53",
+      "nom": "Mayenne",
+      "date": "2020-08-20",
+      "hospitalises": 17,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 47,
+      "gueris": 233,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-54",
+      "nom": "Meurthe-et-Moselle",
+      "date": "2020-08-20",
+      "hospitalises": 44,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 365,
+      "gueris": 1260,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-55",
+      "nom": "Meuse",
+      "date": "2020-08-20",
+      "hospitalises": 2,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 103,
+      "gueris": 503,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-56",
+      "nom": "Morbihan",
+      "date": "2020-08-20",
+      "hospitalises": 17,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 2,
+      "nouvellesReanimations": 0,
+      "deces": 96,
+      "gueris": 442,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-57",
+      "nom": "Moselle",
+      "date": "2020-08-20",
+      "hospitalises": 106,
+      "reanimation": 3,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 851,
+      "gueris": 2563,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-58",
+      "nom": "Nièvre",
+      "date": "2020-08-20",
+      "hospitalises": 0,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 28,
+      "gueris": 99,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-59",
+      "nom": "Nord",
+      "date": "2020-08-20",
+      "hospitalises": 153,
+      "reanimation": 18,
+      "nouvellesHospitalisations": 6,
+      "nouvellesReanimations": 1,
+      "deces": 674,
+      "gueris": 2667,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-60",
+      "nom": "Oise",
+      "date": "2020-08-20",
+      "hospitalises": 137,
+      "reanimation": 4,
+      "nouvellesHospitalisations": 2,
+      "nouvellesReanimations": 0,
+      "deces": 419,
+      "gueris": 1212,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-61",
+      "nom": "Orne",
+      "date": "2020-08-20",
+      "hospitalises": 15,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 43,
+      "gueris": 255,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-62",
+      "nom": "Pas-de-Calais",
+      "date": "2020-08-20",
+      "hospitalises": 95,
+      "reanimation": 10,
+      "nouvellesHospitalisations": 3,
+      "nouvellesReanimations": 1,
+      "deces": 322,
+      "gueris": 1426,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-63",
+      "nom": "Puy-de-Dôme",
+      "date": "2020-08-20",
+      "hospitalises": 17,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 1,
+      "deces": 45,
+      "gueris": 186,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-64",
+      "nom": "Pyrénées-Atlantiques",
+      "date": "2020-08-20",
+      "hospitalises": 3,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 27,
+      "gueris": 231,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-65",
+      "nom": "Hautes-Pyrénées",
+      "date": "2020-08-20",
+      "hospitalises": 5,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 27,
+      "gueris": 160,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-66",
+      "nom": "Pyrénées-Orientales",
+      "date": "2020-08-20",
+      "hospitalises": 5,
+      "reanimation": 2,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 35,
+      "gueris": 283,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-67",
+      "nom": "Bas-Rhin",
+      "date": "2020-08-20",
+      "hospitalises": 132,
+      "reanimation": 3,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 1,
+      "deces": 673,
+      "gueris": 2697,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-68",
+      "nom": "Haut-Rhin",
+      "date": "2020-08-20",
+      "hospitalises": 139,
+      "reanimation": 6,
+      "nouvellesHospitalisations": 5,
+      "nouvellesReanimations": 2,
+      "deces": 827,
+      "gueris": 3051,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-69",
+      "nom": "Rhône",
+      "date": "2020-08-20",
+      "hospitalises": 81,
+      "reanimation": 8,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 668,
+      "gueris": 3166,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-70",
+      "nom": "Haute-Saône",
+      "date": "2020-08-20",
+      "hospitalises": 0,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 77,
+      "gueris": 309,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-71",
+      "nom": "Saône-et-Loire",
+      "date": "2020-08-20",
+      "hospitalises": 4,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 202,
+      "gueris": 791,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-72",
+      "nom": "Sarthe",
+      "date": "2020-08-20",
+      "hospitalises": 28,
+      "reanimation": 2,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 88,
+      "gueris": 420,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-73",
+      "nom": "Savoie",
+      "date": "2020-08-20",
+      "hospitalises": 6,
+      "reanimation": 2,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 75,
+      "gueris": 430,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-74",
+      "nom": "Haute-Savoie",
+      "date": "2020-08-20",
+      "hospitalises": 35,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 170,
+      "gueris": 922,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-75",
+      "nom": "Paris",
+      "date": "2020-08-20",
+      "hospitalises": 303,
+      "reanimation": 38,
+      "nouvellesHospitalisations": 14,
+      "nouvellesReanimations": 2,
+      "deces": 1797,
+      "gueris": 6539,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-76",
+      "nom": "Seine-Maritime",
+      "date": "2020-08-20",
+      "hospitalises": 23,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 184,
+      "gueris": 841,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-77",
+      "nom": "Seine-et-Marne",
+      "date": "2020-08-20",
+      "hospitalises": 166,
+      "reanimation": 19,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 712,
+      "gueris": 2809,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-78",
+      "nom": "Yvelines",
+      "date": "2020-08-20",
+      "hospitalises": 248,
+      "reanimation": 17,
+      "nouvellesHospitalisations": 6,
+      "nouvellesReanimations": 0,
+      "deces": 541,
+      "gueris": 2415,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-79",
+      "nom": "Deux-Sèvres",
+      "date": "2020-08-20",
+      "hospitalises": 0,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 22,
+      "gueris": 71,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-80",
+      "nom": "Somme",
+      "date": "2020-08-20",
+      "hospitalises": 44,
+      "reanimation": 3,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 1,
+      "deces": 233,
+      "gueris": 758,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-81",
+      "nom": "Tarn",
+      "date": "2020-08-20",
+      "hospitalises": 6,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 23,
+      "gueris": 125,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-82",
+      "nom": "Tarn-et-Garonne",
+      "date": "2020-08-20",
+      "hospitalises": 3,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 7,
+      "gueris": 44,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-83",
+      "nom": "Var",
+      "date": "2020-08-20",
+      "hospitalises": 60,
+      "reanimation": 4,
+      "nouvellesHospitalisations": 2,
+      "nouvellesReanimations": 0,
+      "deces": 143,
+      "gueris": 1023,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-84",
+      "nom": "Vaucluse",
+      "date": "2020-08-20",
+      "hospitalises": 9,
+      "reanimation": 2,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 39,
+      "gueris": 270,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-85",
+      "nom": "Vendée",
+      "date": "2020-08-20",
+      "hospitalises": 10,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 2,
+      "nouvellesReanimations": 0,
+      "deces": 42,
+      "gueris": 274,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-86",
+      "nom": "Vienne",
+      "date": "2020-08-20",
+      "hospitalises": 2,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 40,
+      "gueris": 150,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-87",
+      "nom": "Haute-Vienne",
+      "date": "2020-08-20",
+      "hospitalises": 1,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 25,
+      "gueris": 135,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-88",
+      "nom": "Vosges",
+      "date": "2020-08-20",
+      "hospitalises": 11,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 266,
+      "gueris": 746,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-89",
+      "nom": "Yonne",
+      "date": "2020-08-20",
+      "hospitalises": 13,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 1,
+      "deces": 95,
+      "gueris": 404,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-90",
+      "nom": "Territoire de Belfort",
+      "date": "2020-08-20",
+      "hospitalises": 2,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 200,
+      "gueris": 564,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-91",
+      "nom": "Essonne",
+      "date": "2020-08-20",
+      "hospitalises": 257,
+      "reanimation": 17,
+      "nouvellesHospitalisations": 4,
+      "nouvellesReanimations": 0,
+      "deces": 541,
+      "gueris": 2507,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-92",
+      "nom": "Hauts-de-Seine",
+      "date": "2020-08-20",
+      "hospitalises": 534,
+      "reanimation": 47,
+      "nouvellesHospitalisations": 6,
+      "nouvellesReanimations": 3,
+      "deces": 1102,
+      "gueris": 4687,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-93",
+      "nom": "Seine-Saint-Denis",
+      "date": "2020-08-20",
+      "hospitalises": 436,
+      "reanimation": 24,
+      "nouvellesHospitalisations": 4,
+      "nouvellesReanimations": 0,
+      "deces": 1017,
+      "gueris": 4065,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-94",
+      "nom": "Val-de-Marne",
+      "date": "2020-08-20",
+      "hospitalises": 312,
+      "reanimation": 21,
+      "nouvellesHospitalisations": 5,
+      "nouvellesReanimations": 4,
+      "deces": 1221,
+      "gueris": 4526,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-95",
+      "nom": "Val-d'Oise",
+      "date": "2020-08-20",
+      "hospitalises": 229,
+      "reanimation": 7,
+      "nouvellesHospitalisations": 4,
+      "nouvellesReanimations": 1,
+      "deces": 725,
+      "gueris": 2754,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-971",
+      "nom": "Guadeloupe",
+      "date": "2020-08-20",
+      "hospitalises": 10,
+      "reanimation": 5,
+      "nouvellesHospitalisations": 2,
+      "nouvellesReanimations": 2,
+      "deces": 19,
+      "gueris": 88,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-972",
+      "nom": "Martinique",
+      "date": "2020-08-20",
+      "hospitalises": 4,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 17,
+      "gueris": 99,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-973",
+      "nom": "Guyane",
+      "date": "2020-08-20",
+      "hospitalises": 88,
+      "reanimation": 15,
+      "nouvellesHospitalisations": 6,
+      "nouvellesReanimations": 0,
+      "deces": 50,
+      "gueris": 1376,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-974",
+      "nom": "La Réunion",
+      "date": "2020-08-20",
+      "hospitalises": 38,
+      "reanimation": 9,
+      "nouvellesHospitalisations": 5,
+      "nouvellesReanimations": 2,
+      "deces": 5,
+      "gueris": 187,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "code": "DEP-976",
+      "nom": "Mayotte",
+      "date": "2020-08-20",
+      "hospitalises": 7,
+      "reanimation": 2,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 28,
+      "gueris": 437,
+      "source": {
+        "nom": "Santé publique France Data"
+      },
+      "sourceType": "sante-publique-france-data"
+    },
+    {
+      "date": "2020-08-20",
+      "source": {
+        "nom": "Ministère des Solidarités et de la Santé"
+      },
+      "sourceType": "ministere-sante",
+      "casConfirmes": 229814,
+      "deces": 19969,
+      "decesEhpad": 10511,
+      "hospitalises": 4748,
+      "reanimation": 380,
+      "gueris": 84642,
+      "casConfirmesEhpad": 39930,
+      "nouvellesHospitalisations": 149,
+      "nouvellesReanimations": 28,
+      "nom": "France",
+      "code": "FRA"
+    },
+    {
+      "code": "FRA",
+      "nom": "France",
+      "date": "2020-08-20",
+      "hospitalises": 4723,
+      "reanimation": 368,
+      "nouvellesHospitalisations": 149,
+      "nouvellesReanimations": 28,
+      "deces": 19949,
+      "gueris": 84615,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-01",
+      "nom": "Guadeloupe",
+      "date": "2020-08-20",
+      "hospitalises": 10,
+      "reanimation": 5,
+      "nouvellesHospitalisations": 2,
+      "nouvellesReanimations": 2,
+      "deces": 19,
+      "gueris": 88,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-02",
+      "nom": "Martinique",
+      "date": "2020-08-20",
+      "hospitalises": 4,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 17,
+      "gueris": 99,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-03",
+      "nom": "Guyane",
+      "date": "2020-08-20",
+      "hospitalises": 88,
+      "reanimation": 15,
+      "nouvellesHospitalisations": 6,
+      "nouvellesReanimations": 0,
+      "deces": 50,
+      "gueris": 1376,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-04",
+      "nom": "La Réunion",
+      "date": "2020-08-20",
+      "hospitalises": 38,
+      "reanimation": 9,
+      "nouvellesHospitalisations": 5,
+      "nouvellesReanimations": 2,
+      "deces": 5,
+      "gueris": 187,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-06",
+      "nom": "Mayotte",
+      "date": "2020-08-20",
+      "hospitalises": 7,
+      "reanimation": 2,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 28,
+      "gueris": 437,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-11",
+      "nom": "Île-de-France",
+      "date": "2020-08-20",
+      "hospitalises": 2485,
+      "reanimation": 190,
+      "nouvellesHospitalisations": 44,
+      "nouvellesReanimations": 10,
+      "deces": 7656,
+      "gueris": 30302,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-24",
+      "nom": "Centre-Val de Loire",
+      "date": "2020-08-20",
+      "hospitalises": 59,
+      "reanimation": 5,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 570,
+      "gueris": 2363,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-27",
+      "nom": "Bourgogne-Franche-Comté",
+      "date": "2020-08-20",
+      "hospitalises": 23,
+      "reanimation": 4,
+      "nouvellesHospitalisations": 4,
+      "nouvellesReanimations": 2,
+      "deces": 1064,
+      "gueris": 4096,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-28",
+      "nom": "Normandie",
+      "date": "2020-08-20",
+      "hospitalises": 74,
+      "reanimation": 1,
+      "nouvellesHospitalisations": 3,
+      "nouvellesReanimations": 0,
+      "deces": 447,
+      "gueris": 1878,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-32",
+      "nom": "Hauts-de-France",
+      "date": "2020-08-20",
+      "hospitalises": 480,
+      "reanimation": 39,
+      "nouvellesHospitalisations": 12,
+      "nouvellesReanimations": 3,
+      "deces": 1934,
+      "gueris": 7175,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-44",
+      "nom": "Grand Est",
+      "date": "2020-08-20",
+      "hospitalises": 528,
+      "reanimation": 18,
+      "nouvellesHospitalisations": 9,
+      "nouvellesReanimations": 3,
+      "deces": 3642,
+      "gueris": 12979,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-52",
+      "nom": "Pays de la Loire",
+      "date": "2020-08-20",
+      "hospitalises": 99,
+      "reanimation": 11,
+      "nouvellesHospitalisations": 3,
+      "nouvellesReanimations": 0,
+      "deces": 487,
+      "gueris": 2358,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-53",
+      "nom": "Bretagne",
+      "date": "2020-08-20",
+      "hospitalises": 62,
+      "reanimation": 4,
+      "nouvellesHospitalisations": 3,
+      "nouvellesReanimations": 1,
+      "deces": 268,
+      "gueris": 1372,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-75",
+      "nom": "Nouvelle-Aquitaine",
+      "date": "2020-08-20",
+      "hospitalises": 63,
+      "reanimation": 9,
+      "nouvellesHospitalisations": 1,
+      "nouvellesReanimations": 0,
+      "deces": 430,
+      "gueris": 2301,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-76",
+      "nom": "Occitanie",
+      "date": "2020-08-20",
+      "hospitalises": 91,
+      "reanimation": 13,
+      "nouvellesHospitalisations": 9,
+      "nouvellesReanimations": 1,
+      "deces": 520,
+      "gueris": 3030,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-84",
+      "nom": "Auvergne-Rhône-Alpes",
+      "date": "2020-08-20",
+      "hospitalises": 257,
+      "reanimation": 19,
+      "nouvellesHospitalisations": 11,
+      "nouvellesReanimations": 2,
+      "deces": 1772,
+      "gueris": 8256,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-93",
+      "nom": "Provence-Alpes-Côte d'Azur",
+      "date": "2020-08-20",
+      "hospitalises": 351,
+      "reanimation": 23,
+      "nouvellesHospitalisations": 35,
+      "nouvellesReanimations": 2,
+      "deces": 981,
+      "gueris": 6062,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    },
+    {
+      "code": "REG-94",
+      "nom": "Corse",
+      "date": "2020-08-20",
+      "hospitalises": 4,
+      "reanimation": 0,
+      "nouvellesHospitalisations": 0,
+      "nouvellesReanimations": 0,
+      "deces": 59,
+      "gueris": 256,
+      "source": {
+        "nom": "OpenCOVID19-fr"
+      },
+      "sourceType": "opencovid19-fr"
+    }
+  ]
 }

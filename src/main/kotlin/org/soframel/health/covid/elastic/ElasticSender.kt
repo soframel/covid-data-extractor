@@ -1,18 +1,22 @@
-package org.soframel.health.covid.service
+package org.soframel.health.covid.elastic
 
 
-import org.apache.http.HttpHost
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.SerializationFeature
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import org.eclipse.microprofile.config.inject.ConfigProperty
 import org.elasticsearch.action.index.IndexRequest
 import org.elasticsearch.client.RequestOptions
-import org.elasticsearch.client.RestClient
 import org.elasticsearch.client.RestHighLevelClient
 import org.elasticsearch.common.xcontent.XContentType
+import org.soframel.health.covid.model.CountryDailyData
+import org.soframel.health.covid.model.CovidElasticData
+import org.soframel.health.covid.model.french.FrenchCovidDailyData
+import java.io.StringWriter
 import java.util.*
 import java.util.logging.Logger
 import javax.annotation.PostConstruct
 import javax.enterprise.context.ApplicationScoped
-import javax.enterprise.inject.Default
 import javax.inject.Inject
 
 @ApplicationScoped
@@ -46,6 +50,14 @@ class ElasticSender {
     var client: RestHighLevelClient?=null
     var options: RequestOptions?=null
 
+
+    val mapper: ObjectMapper
+    init{
+        mapper= ObjectMapper()
+        mapper.registerModule(JavaTimeModule())
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+    }
+
     @PostConstruct
     fun postInjectInit(){
         logger.info("building client with scheme $elasticScheme, hostname $elasticHostname, port $elasticPort and username $elasticUsername")
@@ -57,6 +69,15 @@ class ElasticSender {
         options = builder.build()
     }
 
+    fun serializeAndSend(data: CovidElasticData){
+
+        val sw= StringWriter()
+        mapper.writeValue(sw, data)
+        sw.flush()
+        val json=sw.toString()
+
+        this.sendToElastic(json, data.country + "-" + data.source + "-" + data.date)
+    }
 
     /**
      * send whole JSOn to elastic search

@@ -1,9 +1,10 @@
 package org.soframel.health.covid.model.french
 
+import org.soframel.health.covid.model.CountryDailyData
 import java.time.LocalDate
 import java.util.Date
 
-class FrenchCovidDailyData constructor( ) {
+class FrenchCovidDailyData : CountryDailyData {
     val date: LocalDate =LocalDate.now()
     val source: Source = Source()
     val sourceType: String=""

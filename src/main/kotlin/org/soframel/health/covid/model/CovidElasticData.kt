@@ -17,6 +17,10 @@ class CovidElasticData {
     var newReanimations: Long=0
     var victimes: List<ElasticVictim> = ArrayList<ElasticVictim>()
 
+    //tests
+    var totalTested: Long=0
+    var newPositiveTests: Long=0
+
     //compulted values
     var totalCasesPer100kInhabitants:Long=0
     var totalDeathsPer100kInhabitants:Long=0

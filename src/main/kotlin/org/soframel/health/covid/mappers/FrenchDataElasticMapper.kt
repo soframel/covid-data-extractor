@@ -1,29 +1,28 @@
-package org.soframel.health.covid.service
+package org.soframel.health.covid.mappers
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import org.soframel.health.covid.model.CovidElasticData
 import org.soframel.health.covid.model.ElasticVictim
 import org.soframel.health.covid.model.Gender
 import org.soframel.health.covid.model.french.FrenchCovidDailyData
-import java.io.StringWriter
 import javax.enterprise.context.ApplicationScoped
-import javax.enterprise.inject.Default
-import javax.inject.Inject
 
 
 @ApplicationScoped
-class FrenchDataElasticMapper{
+class FrenchDataElasticMapper: DailyDataMapper<FrenchCovidDailyData>{
 
     val POPULATION_FRANCE: Int=66524000
 
-    public fun transformFrenchDataToElastic(data: FrenchCovidDailyData): CovidElasticData{
+    override fun map(data: FrenchCovidDailyData): CovidElasticData{
         val edata=CovidElasticData()
         edata.date=data.date
         edata.source=data.sourceType
         edata.country="FR"
-        edata.region=data.nom
+        if(data.nom!="France") {
+            edata.region = data.nom
+        }
+        else{
+            edata.region=""
+        }
         edata.totalCases=data.casConfirmes+data.casConfirmesEhpad
         edata.totalDeaths=data.deces+data.decesEhpad
         edata.currentlyHospitalized=data.hospitalisation+data.hospitalise+data.hospitalises+data.hospitalisesAuxUrgences+data.hospitalisesConventionnelle+data.hospitalisesReadaptation

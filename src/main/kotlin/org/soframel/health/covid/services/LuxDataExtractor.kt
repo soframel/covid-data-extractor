@@ -1,6 +1,10 @@
-package org.soframel.health.covid.service
+package org.soframel.health.covid.services
 
+import org.apache.commons.io.FileUtils
+import org.apache.commons.io.IOUtils
 import org.soframel.health.covid.client.LuxCovidDataClient
+import org.soframel.health.covid.elastic.ElasticSender
+import org.soframel.health.covid.mappers.LuxembourgDataElasticMapper
 import org.soframel.health.covid.model.lux.LuxCovidDailyData
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -25,9 +29,17 @@ class LuxDataExtractor {
     @field: Default
     lateinit var luxDataClient: LuxCovidDataClient
 
-    fun getAllData(): List<LuxCovidDailyData>{
+    @Inject
+    @field: Default
+    lateinit var mapper: LuxembourgDataElasticMapper
+
+    @Inject
+    @field: Default
+    lateinit var elasticSender: ElasticSender
+
+    fun extractAllData(){
         val inputStream=luxDataClient.fetchData()
-        val result=ArrayList<LuxCovidDailyData>()
+
         if(inputStream!=null) {
             val buffered = BufferedReader(InputStreamReader(inputStream))
             //ignore first line = headers
@@ -36,21 +48,45 @@ class LuxDataExtractor {
                 val line = buffered.readLine();
                 logger.log(Level.FINE, "parsing line "+line)
                 if (line != null) {
-                    result.add(this.parseLine(line))
+                    val data=this.parseLine(line)
+                    val edata=mapper.map(data)
+                    elasticSender.serializeAndSend(edata)
                 }
             } while (line != null)
         }
         else{
             logger.log(Level.WARNING, "no inputStream for data")
         }
-       return result
     }
 
     /*
     like parseAllData but parses only last line
      */
-    fun getTodaysData(){
-        //TODO
+    fun extractTodaysData(){
+        val inputStream=luxDataClient.fetchData()
+
+        if(inputStream!=null) {
+            val buffered = BufferedReader(InputStreamReader(inputStream))
+            //ignore first line = headers
+            buffered.readLine()
+            var previousLine=""
+            //TODO: find a more efficient way to read last file's line !
+            do {
+                val line = buffered.readLine();
+                if(line!=null){
+                    previousLine=line
+                }
+            } while (line != null)
+            logger.log(Level.FINE, "reading last line "+previousLine)
+            if (previousLine != null) {
+                val data=this.parseLine(previousLine)
+                val edata=mapper.map(data)
+                elasticSender.serializeAndSend(edata)
+            }
+        }
+        else{
+            logger.log(Level.WARNING, "no inputStream for data")
+        }
     }
 
     fun parseLine(line: String): LuxCovidDailyData{
@@ -64,7 +100,7 @@ class LuxDataExtractor {
         data.nombreDeMorts=parseInt(tokenizer.nextToken())
         data.totalPatientsSortisDhopital=parseInt(tokenizer.nextToken())
         data.totalInfections=parseInt(tokenizer.nextToken())
-        data.nbPersonnesTestéesPositifs=parseInt(tokenizer.nextToken())
+        data.nbPersonnesTesteesPositifs=parseInt(tokenizer.nextToken())
         data.nbTestsTotal=parseInt(tokenizer.nextToken())
 
         logger.info("parsed "+data)

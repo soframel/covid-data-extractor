@@ -1,4 +1,4 @@
-package org.soframel.health.covid.service
+package org.soframel.health.covid.services
 
 import org.apache.commons.io.IOUtils
 import org.junit.jupiter.api.Test
