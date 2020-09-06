@@ -21,7 +21,9 @@ import javax.inject.Inject
 
 @ApplicationScoped
 class ElasticSender {
-    val logger = Logger.getLogger("ElasticSender")
+    val logger = Logger.getLogger(ElasticSender::class.qualifiedName)
+
+    val ELASTIC_PASSWORD_PROPNAME="elastic.covid.password"
 
     @Inject
     @ConfigProperty(name = "elastic.hostname")
@@ -39,8 +41,7 @@ class ElasticSender {
     @ConfigProperty(name = "elastic.username")
     var elasticUsername: String?=null
 
-    @Inject
-    @ConfigProperty(name = "elastic.password")
+    //password is not injected but comes from a system property
     var elasticPassword: String?=null
 
     @Inject
@@ -62,6 +63,9 @@ class ElasticSender {
     fun postInjectInit(){
         logger.info("building client with scheme $elasticScheme, hostname $elasticHostname, port $elasticPort and username $elasticUsername")
         client= RestHighLevelClient(org.elasticsearch.client.RestClient.builder(org.apache.http.HttpHost(elasticHostname, java.lang.Integer.parseInt(elasticPort), elasticScheme)))
+
+        elasticPassword=System.getProperty(ELASTIC_PASSWORD_PROPNAME)
+        logger.info("******************* "+elasticPassword)
         val auth=elasticUsername+":"+elasticPassword
         val token= Base64.getEncoder().encodeToString(auth.toByteArray())
         val builder = RequestOptions.DEFAULT.toBuilder()
