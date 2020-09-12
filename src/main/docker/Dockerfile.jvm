@@ -42,6 +42,22 @@ RUN microdnf install curl ca-certificates ${JAVA_PACKAGE} \
     && chmod 540 /deployments/run-java.sh \
     && echo "securerandom.source=file:/dev/urandom" >> /etc/alternatives/jre/lib/security/java.security
 
+#TODO: Cron
+#create script
+#RUN echo "java -Delastic.password=\${ELASTIC_PASSWORD} -jar /usr/share/luxparkings/luxparkings-extractor.jar" >> /usr/share/luxparkings/luxparkings
+#RUN chmod a+x /usr/share/luxparkings/luxparkings
+#create file for crontab
+#RUN echo "*/5 * * * * /usr/share/luxparkings/luxparkings" >> /usr/share/luxparkings/luxparkings-cron
+#apply correct permissions
+#RUN chmod 0600 /usr/share/luxparkings/luxparkings-cron
+# Apply cron job
+#RUN crontab /usr/share/luxparkings/luxparkings-cron
+#fix link-count, as cron is being a pain, and docker is making hardlink count >0 (very high)
+#RUN touch /etc/crontab /etc/cron.*/*
+# Create the log file to be able to run tail
+#RUN touch /var/log/cron.log
+#CMD crond -l 2 -f
+
 COPY target/lib/* /deployments/lib/
 COPY target/*-runner.jar /deployments/app.jar
 

@@ -17,12 +17,17 @@ class FrenchDataElasticMapper: DailyDataMapper<FrenchCovidDailyData>{
         edata.date=data.date
         edata.source=data.sourceType
         edata.country="FR"
-        if(data.nom!="France") {
-            edata.region = data.nom
-        }
-        else{
+        if(data.nom=="Monde"){
+            edata.country="World"
             edata.region=""
         }
+        else if(data.nom=="France") {
+            edata.region = ""
+        }
+        else {
+            edata.region = data.nom
+        }
+
         edata.totalCases=data.casConfirmes+data.casConfirmesEhpad
         edata.totalDeaths=data.deces+data.decesEhpad
         edata.currentlyHospitalized=data.hospitalisation+data.hospitalise+data.hospitalises+data.hospitalisesAuxUrgences+data.hospitalisesConventionnelle+data.hospitalisesReadaptation
@@ -34,5 +39,9 @@ class FrenchDataElasticMapper: DailyDataMapper<FrenchCovidDailyData>{
 
         edata.computeAdditionalValues(POPULATION_FRANCE)
         return edata
+    }
+
+    override fun map(l: List<FrenchCovidDailyData>): List<CovidElasticData> {
+        return l.map { d -> this.map(d) }
     }
 }

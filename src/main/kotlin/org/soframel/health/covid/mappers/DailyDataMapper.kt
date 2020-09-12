@@ -6,4 +6,5 @@ import org.soframel.health.covid.model.CovidElasticData
 interface DailyDataMapper<T : CountryDailyData> {
 
     fun map(d: T): CovidElasticData
+    fun map(l: List<T>): List<CovidElasticData>
 }

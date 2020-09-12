@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import org.eclipse.microprofile.config.inject.ConfigProperty
+import org.elasticsearch.action.bulk.BulkRequest
+import org.elasticsearch.action.bulk.BulkRequestBuilder
 import org.elasticsearch.action.index.IndexRequest
 import org.elasticsearch.client.RequestOptions
 import org.elasticsearch.client.RestHighLevelClient
@@ -65,7 +67,6 @@ class ElasticSender {
         client= RestHighLevelClient(org.elasticsearch.client.RestClient.builder(org.apache.http.HttpHost(elasticHostname, java.lang.Integer.parseInt(elasticPort), elasticScheme)))
 
         elasticPassword=System.getProperty(ELASTIC_PASSWORD_PROPNAME)
-        logger.info("******************* "+elasticPassword)
         val auth=elasticUsername+":"+elasticPassword
         val token= Base64.getEncoder().encodeToString(auth.toByteArray())
         val builder = RequestOptions.DEFAULT.toBuilder()
@@ -83,6 +84,32 @@ class ElasticSender {
         this.sendToElastic(json, data.country + "-" + data.source + "-" + data.date)
     }
 
+    fun serializeAndSendBulk(list: List<CovidElasticData>){
+
+        if(list!=null && list.size>0) {
+            var request = BulkRequest()
+            for (data in list) {
+                request.add(IndexRequest(indexName).id(this.getDataId(data)).source(this.serializeDataToJson(data), XContentType.JSON))
+            }
+            logger.info("sending bulk data")
+            val indexResponse = client?.bulk(request, options)
+            logger.info("elastic response=" + indexResponse)
+        }
+        else{
+            logger.warning("serializeAndSendBulk: list is empty")
+        }
+    }
+
+    fun getDataId(data: CovidElasticData): String{
+        return data.country + "-" + data.source + "-" + data.date
+    }
+    fun serializeDataToJson(data: CovidElasticData): String{
+        val sw= StringWriter()
+        mapper.writeValue(sw, data)
+        sw.flush()
+        return sw.toString()
+    }
+
     /**
      * send whole JSOn to elastic search
      */
@@ -92,10 +119,8 @@ class ElasticSender {
         request.source(json, XContentType.JSON)
 
         logger.info("sending JSON:"+json)
-
-            val indexResponse = client?.index(request, options)
-            logger.info("elastic response=" + indexResponse)
-
+        val indexResponse = client?.index(request, options)
+        logger.info("elastic response=" + indexResponse)
     }
 
 }

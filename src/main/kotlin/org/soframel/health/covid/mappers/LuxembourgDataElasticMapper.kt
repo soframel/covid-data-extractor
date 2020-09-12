@@ -31,4 +31,8 @@ class LuxembourgDataElasticMapper: DailyDataMapper<LuxCovidDailyData>{
         edata.computeAdditionalValues(POPULATION_LUXEMBOURG)
         return edata
     }
+
+    override fun map(l: List<LuxCovidDailyData>): List<CovidElasticData> {
+        return l.map { d -> this.map(d) }
+    }
 }

@@ -38,10 +38,7 @@ class FrenchDataExtractor {
 
 	fun importDataListIntoElastic(dataList: List<FrenchCovidDailyData>){
 		val list= this.keepOnlyDataToImport(dataList)
-		for(d in list){
-			val edata=mapper.map(d)
-			elasticSender.serializeAndSend(edata)
-		}
+		elasticSender.serializeAndSendBulk(mapper.map(list))
 	}
 
 	fun keepOnlyDataToImport(list: List<FrenchCovidDailyData>): List<FrenchCovidDailyData>{
@@ -51,7 +48,7 @@ class FrenchDataExtractor {
 	fun shouldDataBeImported(data: FrenchCovidDailyData): Boolean{
 		//do not keep opencovid global data for France, equivalent to ministere-sante data
 		//but for regions, some regions are missing -> keep opencovid
-		return data.sourceType=="ministere-sante" || (data.sourceType=="opencovid19-fr" && data.code!="FRA")
+		return data.sourceType.equals("ministere-sante") || (data.sourceType.equals("sante-publique-france-data") || data.sourceType.equals("opencovid19-fr") && !data.code.equals("FRA"))
 	}
 
 	/*fun findMinistereSanteData(list: List<FrenchCovidDailyData>): FrenchCovidDailyData?{

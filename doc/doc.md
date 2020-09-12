@@ -29,13 +29,13 @@ Then build docker image:
 
 the run with: 
 
-`docker run --name covid-extractor --e elastic.password=<YOURPASSWORD>`
+`docker run --name covid-extractor --network <NETWORK_NAME> -e ELASTIC_COVID_PASSWORD=<YOURPASSWORD> sophie/covid-data-extractor:1.0-SNAPSHOT`
  
 (no volume necessary)
 
 
-NOTE: the 1rst time, start with parameter "init" to load all data since beginning of pandemy (this may take a while).
-TODO: show how. 
+NOTE: the 1rst time, start with adding parameter "init" at the end of the command to load all data since beginning of pandemy (this may take a while).
+ 
 
 ## Quarkus development
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
