@@ -44,12 +44,13 @@ class FrenchDataExtractor {
 	fun removeDoubles(list: List<FrenchCovidDailyData>): List<FrenchCovidDailyData>{
 		val map=HashMap<String,MutableList<FrenchCovidDailyData>>()
 		for(data in list){
-			var regionList=map.get(data.code)
-			if(regionList!=null){
-				regionList.add(data)
-			}
-			else{
-				map.set(data.code, mutableListOf(data))
+			if(!data.code.equals("Monde")) { //do not keep world data, it is too incomplete in this dataset
+				var regionList = map.get(data.code)
+				if (regionList != null) {
+					regionList.add(data)
+				} else {
+					map.set(data.code, mutableListOf(data))
+				}
 			}
 		}
 

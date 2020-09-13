@@ -26,7 +26,12 @@ class CovidElasticData {
     var totalDeathsPer100kInhabitants:Long=0
 
     fun computeAdditionalValues(population: Int){
-        this.totalCasesPer100kInhabitants=this.totalCases*100000/population
-        this.totalDeathsPer100kInhabitants=this.totalDeaths*100000/population
+        //country specific data, only if region is empty
+            if (totalCases > 0) {
+                this.totalCasesPer100kInhabitants = this.totalCases * 100000 / population
+            }
+            if (totalDeaths > 0) {
+                this.totalDeathsPer100kInhabitants = this.totalDeaths * 100000 / population
+            }
     }
 }

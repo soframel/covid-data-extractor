@@ -7,6 +7,7 @@ import org.apache.commons.io.IOUtils
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.soframel.health.covid.mappers.FrenchDataElasticMapper
+import org.soframel.health.covid.model.CovidElasticData
 import org.soframel.health.covid.model.french.FrenchCovidDailyData
 import org.soframel.health.covid.model.french.FrenchResult
 import java.io.InputStream
@@ -92,8 +93,24 @@ class FrenchDataElasticMapperTestCase: AbstractCovidDataExtractorTestCase() {
         assertEquals(28, data.newReanimations)
 
         assertEquals("ministere-sante", data.source)
+    }
 
+    @Test
+    fun testComputeAdditionalValues(){
+        val edata=CovidElasticData()
+        edata.totalCases=200000
 
+        mapper.computeAdditionalValuesFromPopulation("DEP-69", edata)
+        var expected: Long=20000000000/mapper.POPULATION_RHONE
+        assertEquals(expected, edata.totalCasesPer100kInhabitants)
+
+        mapper.computeAdditionalValuesFromPopulation("REG-93", edata)
+        expected=20000000000/mapper.POPULATION_PACA
+        assertEquals(expected, edata.totalCasesPer100kInhabitants)
+
+        mapper.computeAdditionalValuesFromPopulation("FRA", edata)
+        expected=20000000000/mapper.POPULATION_FRANCE
+        assertEquals(expected, edata.totalCasesPer100kInhabitants)
     }
 
 }
