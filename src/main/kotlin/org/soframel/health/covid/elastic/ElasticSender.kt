@@ -91,9 +91,18 @@ class ElasticSender {
             for (data in list) {
                 request.add(IndexRequest(indexName).id(this.getDataId(data)).source(this.serializeDataToJson(data), XContentType.JSON))
             }
-            logger.info("sending bulk data")
+            logger.info("sending bulk data with "+list.size+" entries")
             val indexResponse = client?.bulk(request, options)
-            logger.info("elastic response=" + indexResponse)
+            val failed=indexResponse?.filter{it.isFailed}
+            if(failed!=null && failed.isNotEmpty()){
+                logger.severe("elastic response contained errors: ")
+                for(f in failed){
+                    logger.severe("failed: "+f.id+", failure="+f.failure+", message="+f.failureMessage)
+                }
+            }
+            else {
+                logger.info("elastic response ok")
+            }
         }
         else{
             logger.warning("serializeAndSendBulk: list is empty")
@@ -101,7 +110,7 @@ class ElasticSender {
     }
 
     fun getDataId(data: CovidElasticData): String{
-        return data.country + "-" + data.source + "-" + data.date
+        return data.country + "-"+data.region + "-" + data.date+"-" + data.source
     }
     fun serializeDataToJson(data: CovidElasticData): String{
         val sw= StringWriter()

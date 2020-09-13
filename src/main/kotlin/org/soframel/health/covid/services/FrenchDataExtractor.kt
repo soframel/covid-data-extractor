@@ -31,9 +31,43 @@ class FrenchDataExtractor {
 		val result=frenchClient.getTodaysData();
 		val dataList=result.franceGlobalLiveData;
 		println("loaded "+ dataList.size +" entries")
-		if(dataList.size>=0){
+		/*if(dataList.size>=0){
 			this.importDataListIntoElastic(dataList)
+		}*/
+		val shortList=this.removeDoubles((dataList))
+		print("kept "+shortList.size+" entries, from sources: ")
+		shortList.forEach{print(it.sourceType)}
+		this.importDataListIntoElastic(shortList)
+	}
+
+	/**keep most official data when there is a choice **/
+	fun removeDoubles(list: List<FrenchCovidDailyData>): List<FrenchCovidDailyData>{
+		val map=HashMap<String,MutableList<FrenchCovidDailyData>>()
+		for(data in list){
+			var regionList=map.get(data.code)
+			if(regionList!=null){
+				regionList.add(data)
+			}
+			else{
+				map.set(data.code, mutableListOf(data))
+			}
 		}
+
+		val list= mutableListOf<FrenchCovidDailyData>()
+		for(key in map.keys){
+			val regionList=map.get(key)
+			if(regionList!=null) {
+				//keep official data
+				val official = regionList.filter { it.sourceType.equals("ministere-sante") || it.sourceType.contains("sante-publique") }
+				if(official.isNotEmpty()){
+					list.add(official[0])
+				}
+				else{
+					list.add(regionList[0])
+				}
+			}
+		}
+		return list
 	}
 
 	fun importDataListIntoElastic(dataList: List<FrenchCovidDailyData>){
@@ -48,7 +82,8 @@ class FrenchDataExtractor {
 	fun shouldDataBeImported(data: FrenchCovidDailyData): Boolean{
 		//do not keep opencovid global data for France, equivalent to ministere-sante data
 		//but for regions, some regions are missing -> keep opencovid
-		return data.sourceType.equals("ministere-sante") || (data.sourceType.equals("sante-publique-france-data") || data.sourceType.equals("opencovid19-fr") && !data.code.equals("FRA"))
+		return data.sourceType.equals("ministere-sante") || (data.sourceType.equals("sante-publique-france-data"))
+		// || data.sourceType.equals("opencovid19-fr") && !data.code.equals("FRA")
 	}
 
 	/*fun findMinistereSanteData(list: List<FrenchCovidDailyData>): FrenchCovidDailyData?{
