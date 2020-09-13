@@ -37,5 +37,8 @@ then run with:
 (no volume necessary)
 
 
-NOTE: the 1rst time, start with adding parameter "init" at the end of the command to load all data since beginning of pandemy (this may take a while).
+NOTE: the 1rst time, execute the program with "init" at the end of the command to load all data since beginning of pandemy (this may take a while): 
+`docker exec -it covid-extractor /bin/bash
+/deployments/run-java.sh init
+`
  
