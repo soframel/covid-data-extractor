@@ -38,6 +38,7 @@ class LuxDataExtractor {
     lateinit var elasticSender: ElasticSender
 
     fun extractAllData(){
+        logger.info("extracting luxembourg data")
         val inputStream=luxDataClient.fetchData()
 
         if(inputStream!=null) {
@@ -63,6 +64,7 @@ class LuxDataExtractor {
     like parseAllData but parses only last line
      */
     fun extractTodaysData(){
+        logger.info("extracting french data for last day")
         val inputStream=luxDataClient.fetchData()
 
         if(inputStream!=null) {
