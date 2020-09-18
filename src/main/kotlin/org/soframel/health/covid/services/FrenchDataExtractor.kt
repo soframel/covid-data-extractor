@@ -55,7 +55,7 @@ class FrenchDataExtractor {
 
 
 	fun extractFrenchDataSinceStartDate(startDate: LocalDate){
-		logger.info("extracting french data since start")
+		logger.info("extracting french data since start "+startDate)
 		val today=LocalDate.now()
 		var date=startDate
 		while(date.isBefore(today)){

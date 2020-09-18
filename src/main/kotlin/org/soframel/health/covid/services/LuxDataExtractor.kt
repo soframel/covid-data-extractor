@@ -60,6 +60,31 @@ class LuxDataExtractor {
         }
     }
 
+    fun extractDataSince(date: LocalDate){
+        logger.info("extracting luxembourg data since "+date)
+        val inputStream=luxDataClient.fetchData()
+
+        if(inputStream!=null) {
+            val buffered = BufferedReader(InputStreamReader(inputStream))
+            //ignore first line = headers
+            buffered.readLine()
+            do {
+                val line = buffered.readLine();
+                logger.log(Level.FINE, "parsing line "+line)
+                if (line != null) {
+                    val data=this.parseLine(line)
+                    if(data.date.equals(date) || data.date.isAfter(date)) {
+                        val edata = mapper.map(data)
+                        elasticSender.serializeAndSend(edata)
+                    }
+                }
+            } while (line != null)
+        }
+        else{
+            logger.log(Level.WARNING, "no inputStream for data")
+        }
+    }
+
     /*
     like parseAllData but parses only last line
      */
