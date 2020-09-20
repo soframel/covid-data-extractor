@@ -2,6 +2,7 @@ package org.soframel.health.covid.services
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import org.soframel.health.covid.mappers.SwissDataElasticMapper
 import java.time.LocalDate
 
 class SwissDataExtractorTestCase: AbstractCovidDataExtractorTestCase() {
@@ -24,6 +25,8 @@ class SwissDataExtractorTestCase: AbstractCovidDataExtractorTestCase() {
         assertEquals("https://www.zg.ch/behoerden/gesundheitsdirektion/statistikfachstelle/themen/gesundheit/corona", result.source)
         assertEquals(5, result.currentIsolated)
         assertEquals(8, result.currentQuarantine)
+
+        
     }
 
 }

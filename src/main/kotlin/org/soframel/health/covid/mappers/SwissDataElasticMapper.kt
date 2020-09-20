@@ -6,11 +6,15 @@ import org.soframel.health.covid.model.Gender
 import org.soframel.health.covid.model.french.FrenchCovidDailyData
 import org.soframel.health.covid.model.lux.LuxCovidDailyData
 import org.soframel.health.covid.model.swiss.SwissCovidDailyData
+import org.soframel.health.covid.services.SwissDataExtractor
+import java.util.logging.Logger
 import javax.enterprise.context.ApplicationScoped
 
 
 @ApplicationScoped
 class SwissDataElasticMapper: DailyDataMapper<SwissCovidDailyData>{
+
+    val logger = Logger.getLogger(SwissDataElasticMapper::class.qualifiedName)
 
     val POPULATION_SWISS: Long=8570000L
     //source: wikipedia
@@ -68,8 +72,12 @@ class SwissDataElasticMapper: DailyDataMapper<SwissCovidDailyData>{
         if(canton==null || canton.equals("")){
             population=POPULATION_SWISS
         }
-        else if(POPULATION_CANTONS.containsKey(canton)){
-            population!=POPULATION_CANTONS.get(canton)
+        else{
+            val pop=POPULATION_CANTONS.get(canton)
+            logger.fine("population for $canton is $pop")
+            if(pop!=null){
+                population=pop
+            }
         }
 
         if(population>0) {
