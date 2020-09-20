@@ -11,7 +11,7 @@ import javax.enterprise.context.ApplicationScoped
 @ApplicationScoped
 class LuxembourgDataElasticMapper: DailyDataMapper<LuxCovidDailyData>{
 
-    val POPULATION_LUXEMBOURG: Int=613894
+    val POPULATION_LUXEMBOURG: Long=613894
     val SOURCETYPE="ministere-sante"
 
     override fun map(data: LuxCovidDailyData): CovidElasticData{

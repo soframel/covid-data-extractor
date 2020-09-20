@@ -17,7 +17,14 @@ interface CoronavirusAPIFrance {
 	@GET
     @Path("/FranceLiveGlobalData")
     @Produces("application/json")
-	fun getTodaysData(): FrenchResult
+	fun getTodaysDataGlobalOnly(): FrenchResult
+
+
+    @GET
+    @Path("/AllLiveData")
+    @Produces("application/json")
+    fun getAllTodaysData(): FrenchResult
+
 	
 	@GET
     @Path("/AllDataByDate")

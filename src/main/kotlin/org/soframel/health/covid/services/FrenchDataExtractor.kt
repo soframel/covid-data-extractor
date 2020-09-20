@@ -32,8 +32,8 @@ class FrenchDataExtractor {
 	
 	fun extractFrenchDataForToday(){
 		logger.info("extracting french data for today")
-		val result=frenchClient.getTodaysData();
-		val dataList=result.franceGlobalLiveData;
+		val result=frenchClient.getAllTodaysData();
+		val dataList=result.allLiveFranceData;
 		logger.info("loaded "+ dataList.size +" entries")
 		val shortList=this.removeDoubles((dataList))
 		logger.info("kept "+shortList.size+" entries, from sources")

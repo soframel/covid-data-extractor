@@ -40,13 +40,17 @@ RUN microdnf install curl ca-certificates ${JAVA_PACKAGE} \
     && chown 1001:root /deployments \
     && chown 1001 /deployments/run-java.sh \
     && chmod 540 /deployments/run-java.sh \
-    && echo "securerandom.source=file:/dev/urandom" >> /etc/alternatives/jre/lib/security/java.security
+    && echo "securerandom.source=file:/dev/urandom" >> /etc/alternatives/jre/lib/security/java.security \
+    && echo "printenv | grep 'ELASTIC_COVID_PASSWORD' > /deployments/cron.env" > /deployments/set-env.sh \
+    && chmod +x /deployments/set-env.sh
 
 #CRON
 #Install
 RUN microdnf install crontabs
 #create file for crontab
-RUN echo "0 7 * * * /deployments/run-java.sh" >> /deployments/covid-extractor-cron
+RUN echo "SHELL=/bin/bash" >> /deployments/covid-extractor-cron \
+    && echo "BASH_ENV=/deployments/cron.env"  >> /deployments/covid-extractor-cron \
+    && echo "0 7 * * * /deployments/run-java.sh" >> /deployments/covid-extractor-cron
 #apply correct permissions
 RUN chmod 0600 /deployments/covid-extractor-cron
 # Apply cron job
@@ -66,4 +70,4 @@ EXPOSE 8080
 #To debug
 #CMD ["/bin/bash"]
 #To run CRON
-CMD crond -n -s
+CMD /deployments/set-env.sh; crond -n -s

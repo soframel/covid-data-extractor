@@ -34,6 +34,9 @@
       "newReanimations": {
         "type": "integer"
       },
+      "population": {
+        "type": "long"
+      },
       "victims": {
         "properties": {
           "victim": {

@@ -10,17 +10,17 @@ import javax.enterprise.context.ApplicationScoped
 @ApplicationScoped
 class FrenchDataElasticMapper: DailyDataMapper<FrenchCovidDailyData>{
 
-    val POPULATION_FRANCE: Int=66524000
+    val POPULATION_FRANCE: Long=66524000
     //Régions
-    val POPULATION_ILEDEFRANCE: Int=12210000
-    val POPULATION_AUVERGNERHONEALPES: Int=7948287
-    val POPULATION_PACA: Int=5059000
+    val POPULATION_ILEDEFRANCE: Long=12210000
+    val POPULATION_AUVERGNERHONEALPES: Long=7948287
+    val POPULATION_PACA: Long=5059000
 
     //Départements
-    val POPULATION_PARIS: Int=2187526
-    val POPULATION_RHONE: Int=1882000
-    val POPULATION_BOUCHESDURHONE: Int=2035000
-    val POPULATION_VAUCLUSE: Int=563751
+    val POPULATION_PARIS: Long=2187526
+    val POPULATION_RHONE: Long=1882000
+    val POPULATION_BOUCHESDURHONE: Long=2035000
+    val POPULATION_VAUCLUSE: Long=563751
 
 
     override fun map(data: FrenchCovidDailyData): CovidElasticData{
@@ -66,7 +66,7 @@ class FrenchDataElasticMapper: DailyDataMapper<FrenchCovidDailyData>{
 
      */
     fun computeAdditionalValuesFromPopulation(code: String, edata: CovidElasticData){
-            var population=0
+            var population: Long=0
             when(code){
                 "FRA" -> population=POPULATION_FRANCE
                 "DEP-69" -> population=POPULATION_RHONE

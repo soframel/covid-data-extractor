@@ -63,10 +63,10 @@ class ElasticSender {
 
     @PostConstruct
     fun postInjectInit(){
-        logger.info("building client with scheme $elasticScheme, hostname $elasticHostname, port $elasticPort and username $elasticUsername")
+        elasticPassword=System.getProperty(ELASTIC_PASSWORD_PROPNAME)
+        logger.info("building client with scheme $elasticScheme, hostname $elasticHostname, port $elasticPort and username $elasticUsername, password has "+elasticPassword?.length+" characters.")
         client= RestHighLevelClient(org.elasticsearch.client.RestClient.builder(org.apache.http.HttpHost(elasticHostname, java.lang.Integer.parseInt(elasticPort), elasticScheme)))
 
-        elasticPassword=System.getProperty(ELASTIC_PASSWORD_PROPNAME)
         val auth=elasticUsername+":"+elasticPassword
         val token= Base64.getEncoder().encodeToString(auth.toByteArray())
         val builder = RequestOptions.DEFAULT.toBuilder()
