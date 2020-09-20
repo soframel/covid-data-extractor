@@ -32,7 +32,4 @@ class LuxembourgDataElasticMapper: DailyDataMapper<LuxCovidDailyData>{
         return edata
     }
 
-    override fun map(l: List<LuxCovidDailyData>): List<CovidElasticData> {
-        return l.map { d -> this.map(d) }
-    }
 }

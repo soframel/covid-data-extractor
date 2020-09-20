@@ -3,6 +3,7 @@ package org.soframel.health.covid
 import io.quarkus.runtime.QuarkusApplication
 import org.soframel.health.covid.services.FrenchDataExtractor
 import org.soframel.health.covid.services.LuxDataExtractor
+import org.soframel.health.covid.services.SwissDataExtractor
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.logging.Logger
@@ -22,6 +23,10 @@ class CovidDataExtractor: QuarkusApplication {
     @field: Default
     lateinit var luxDataExtractor: LuxDataExtractor
 
+    @Inject
+    @field: Default
+    lateinit var swissDataExtractor: SwissDataExtractor
+
     val startOfPandemy=LocalDate.of(2020, 3, 1)
 
     override fun run(args: Array<String>): Int {
@@ -40,22 +45,27 @@ class CovidDataExtractor: QuarkusApplication {
                     else if(country.toUpperCase().equals("LU")){
                         luxDataExtractor.extractDataSince(startDate)
                     }
+                    else if(country.toUpperCase().equals("CH")){
+                        swissDataExtractor.extractDataSince(startDate)
+                    }
                 }
                 else {
                     //extract all since startDate
                     frenchDataExtractor.extractFrenchDataSinceStartDate(startDate)
                     luxDataExtractor.extractDataSince(startDate)
+                    swissDataExtractor.extractDataSince(startDate)
                 }
             }
             else{
                 logger.info("initialization - extracting all data")
                 frenchDataExtractor.extractFrenchDataSinceStartDate(startOfPandemy)
-
                 luxDataExtractor.extractAllData()
+                swissDataExtractor.extractAllData()
             }
         }
         else {
             luxDataExtractor.extractTodaysData()
+            swissDataExtractor.extractTodaysData()
         }
         //extract french today's data in all cases: not in initialization
         frenchDataExtractor.extractFrenchDataForToday()

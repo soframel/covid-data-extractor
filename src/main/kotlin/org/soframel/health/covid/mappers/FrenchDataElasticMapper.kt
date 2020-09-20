@@ -83,7 +83,4 @@ class FrenchDataElasticMapper: DailyDataMapper<FrenchCovidDailyData>{
             }
     }
 
-    override fun map(l: List<FrenchCovidDailyData>): List<CovidElasticData> {
-        return l.map { d -> this.map(d) }
-    }
 }
