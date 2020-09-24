@@ -30,9 +30,11 @@ To also build docker image:
 
  mvn clean package -Dquarkus.container-image.build=true 
 
+NOTE: you should set the password to COVID user in scripts/.env file before building the image.
+
 then run with: 
 
-`docker run --name covid-extractor --network <NETWORK_NAME> -e ELASTIC_COVID_PASSWORD=<YOURPASSWORD> <username>/covid-data-extractor:1.0-SNAPSHOT`
+`docker run --name covid-extractor --network <NETWORK_NAME> <username>/covid-data-extractor:1.0-SNAPSHOT`
  
 (no volume necessary)
 

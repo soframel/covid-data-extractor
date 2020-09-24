@@ -44,6 +44,7 @@
 # CONTAINER_MAX_MEMORY: Max memory for the container (if running within a container)
 # MAX_CORE_LIMIT: Number of cores available for the container (if running within a container)
 
+set -o allexport; source /deployments/.env; set +o allexport
 
 export JAVA_OPTIONS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager -Delastic.covid.password=$ELASTIC_COVID_PASSWORD"
 
