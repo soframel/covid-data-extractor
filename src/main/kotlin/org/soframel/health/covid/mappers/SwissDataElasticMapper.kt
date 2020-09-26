@@ -45,8 +45,9 @@ class SwissDataElasticMapper: DailyDataMapper<SwissCovidDailyData>{
         "NE" to 176850L,
         "GE" to 499480L,
         "JU" to 73419L,
-        "CH" to 8544527L)
-
+            "FL" to 38749L //Liechtenstein
+        )
+    //"CH" to 8544527L
 
     override fun map(data: SwissCovidDailyData): CovidElasticData{
         val edata=CovidElasticData()
