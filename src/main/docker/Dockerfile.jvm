@@ -47,7 +47,7 @@ RUN microdnf install curl ca-certificates ${JAVA_PACKAGE} \
 #Install
 RUN microdnf install crontabs
 #create file for crontab
-RUN echo "0 7 * * * /deployments/run-java.sh" >> /deployments/covid-extractor-cron
+RUN echo "0 23 * * * /deployments/run-java.sh" >> /deployments/covid-extractor-cron
 #apply correct permissions
 RUN chmod 0600 /deployments/covid-extractor-cron
 # Apply cron job

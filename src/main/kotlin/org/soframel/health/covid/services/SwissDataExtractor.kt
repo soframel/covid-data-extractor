@@ -82,18 +82,26 @@ class SwissDataExtractor {
 
                 elasticSender.serializeAndSend(edata)
 
+                //first process data for previousDate
+                if(!date.equals(previousDate)){
+                    //then country-wide data
+                    val aggregated=aggregator.aggregate(allDataForDate)
+                    elasticSender.serializeAndSend(aggregated)
+                    allDataForDate= mutableListOf<CovidElasticData>()
+                    previousDate=date
+                }
+
                 if(date.equals(previousDate)) {
                     allDataForDate.add(edata)
                 }
-                else{
-                    //then country-wide data
-                    elasticSender.serializeAndSend(aggregator.aggregate(allDataForDate))
-                    allDataForDate= mutableListOf<CovidElasticData>()
-                    previousDate=startDate
-                }
+
             }
         }
-
+        //last date from file
+        if(previousDate!=null){
+            val aggregate=aggregator.aggregate(allDataForDate)
+            elasticSender.serializeAndSend(aggregate)
+        }
     }
 
 

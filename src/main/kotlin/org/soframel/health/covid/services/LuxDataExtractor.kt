@@ -89,7 +89,7 @@ class LuxDataExtractor {
     like parseAllData but parses only last line
      */
     fun extractTodaysData(){
-        logger.info("extracting french data for last day")
+        logger.info("extracting luxembourg's data for last day")
         val inputStream=luxDataClient.fetchData()
 
         if(inputStream!=null) {
