@@ -99,9 +99,16 @@ class SwissDataExtractor {
         }
         //last date from file
         if(previousDate!=null){
+            logger.info("deleting and re-extracting data for last week")
             val aggregate=aggregator.aggregate(allDataForDate)
             elasticSender.serializeAndSend(aggregate)
         }
+    }
+
+
+    fun deleteAndExtractAllDataSince(date: LocalDate){
+        elasticSender.deleteFromElastic("CH", date)
+        this.extractDataSince(date)
     }
 
 

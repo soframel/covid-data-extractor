@@ -11,10 +11,14 @@ import org.elasticsearch.action.index.IndexRequest
 import org.elasticsearch.client.RequestOptions
 import org.elasticsearch.client.RestHighLevelClient
 import org.elasticsearch.common.xcontent.XContentType
+import org.elasticsearch.index.query.QueryBuilder
+import org.elasticsearch.index.query.QueryBuilders
+import org.elasticsearch.index.reindex.DeleteByQueryRequest
 import org.soframel.health.covid.model.CountryDailyData
 import org.soframel.health.covid.model.CovidElasticData
 import org.soframel.health.covid.model.french.FrenchCovidDailyData
 import java.io.StringWriter
+import java.time.LocalDate
 import java.util.*
 import java.util.logging.Logger
 import javax.annotation.PostConstruct
@@ -130,6 +134,44 @@ class ElasticSender {
         logger.info("sending JSON:"+json)
         val indexResponse = client?.index(request, options)
         logger.info("elastic response=" + indexResponse)
+    }
+
+    fun deleteFromElastic(country: String, since: LocalDate){
+        val today=LocalDate.now()
+
+        val query="{\n" +
+                "        'query':\n" +
+                "        {\n" +
+                "            'bool':{\n" +
+                "            'must':[\n" +
+                "            {\n" +
+                "                'term':{\n" +
+                "                'country':{\n" +
+                "                'value':'"+country+"'\n" +
+                "            }\n" +
+                "            }\n" +
+                "            }\n" +
+                "            ],\n" +
+                "            'filter': [\n" +
+                "            {\n" +
+                "                'range':{\n" +
+                "                'date':{\n" +
+                "                'gte':'"+since.toString()+"',\n" +
+                "                'lte':'"+today.toString()+"',\n" +
+                "                'format':'yyyy-MM-dd'\n" +
+                "            }\n" +
+                "            }\n" +
+                "            }\n" +
+                "            ]\n" +
+                "        }\n" +
+                "        }\n" +
+                "    }"
+
+        val q: DeleteByQueryRequest= DeleteByQueryRequest(indexName)
+        q.setQuery(QueryBuilders.boolQuery().must(QueryBuilders.termQuery("country", country)).filter(QueryBuilders.rangeQuery("date").gte(since.toString()).lte(today.toString())))
+
+        val result=client?.deleteByQuery(q, options)
+        logger.info("deleted data for country "+country+" between "+since.toString()+" and today: "+result)
     }
 
 }

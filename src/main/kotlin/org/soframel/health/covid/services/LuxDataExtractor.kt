@@ -116,6 +116,12 @@ class LuxDataExtractor {
         }
     }
 
+    fun deleteAndExtractAllDataSince(date: LocalDate){
+        logger.info("deleting and re-extracting data for last week")
+        elasticSender.deleteFromElastic("LU", date)
+        this.extractDataSince(date)
+    }
+
     fun parseLine(line: String): LuxCovidDailyData{
         val data=LuxCovidDailyData()
         val tokenizer=StringTokenizer(line, ",")
@@ -140,7 +146,8 @@ class LuxDataExtractor {
             return 0
         }
         else{
-            return Integer.parseInt(s)
+            //use Double, because its valueOf method supports notation with exponents
+            return java.lang.Double.valueOf(s).toInt()
         }
     }
 }

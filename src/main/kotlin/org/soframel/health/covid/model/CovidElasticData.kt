@@ -25,6 +25,7 @@ class CovidElasticData {
     var totalCasesPer100kInhabitants: Long = 0
     var totalDeathsPer100kInhabitants: Long = 0
     var reanimationPer100kInhabitants: Long = 0
+    var currentlyHospizalizedPer100kInhabitants: Long = 0
 
     var population: Long = 0
 
@@ -39,6 +40,9 @@ class CovidElasticData {
         }
         if (currentlyInReanimation > 0) {
             this.reanimationPer100kInhabitants = this.currentlyInReanimation * 100000 / population
+        }
+        if(currentlyHospitalized> 0){
+            this.currentlyHospizalizedPer100kInhabitants=this.currentlyHospitalized * 100000 / population
         }
     }
 }

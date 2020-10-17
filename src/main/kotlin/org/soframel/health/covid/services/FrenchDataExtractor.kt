@@ -35,6 +35,8 @@ class FrenchDataExtractor {
 		val result=frenchClient.getAllTodaysData();
 		val dataList=result.allLiveFranceData;
 		logger.info("loaded "+ dataList.size +" entries")
+
+
 		val shortList=this.removeDoubles((dataList))
 		logger.info("kept "+shortList.size+" entries, from sources")
 		//shortList.forEach{print(it.sourceType)}
@@ -64,6 +66,12 @@ class FrenchDataExtractor {
 		}
 	}
 
+
+	fun deleteAndExtractAllDataSince(date: LocalDate){
+		logger.info("deleting and re-extracting data for last week")
+		elasticSender.deleteFromElastic("FR", date)
+		this.extractFrenchDataSinceStartDate(date)
+	}
 
 	/**keep most official data when there is a choice **/
 	fun removeDoubles(list: List<FrenchCovidDailyData>): List<FrenchCovidDailyData>{
