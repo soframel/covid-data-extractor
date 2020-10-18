@@ -47,7 +47,7 @@ class CovidDataExtractor: QuarkusApplication {
 
             var init=(args[0]).equals("init")
 
-            logger.info("initializating/replacing - extracting data since " + startDate)
+            logger.info("initializating/replacing - extracting data since " + startDate+", for "+country)
 
                 when (country) {
                     "FR" -> {

@@ -1,26 +1,21 @@
 package org.soframel.health.covid.mappers
 
+import org.eclipse.microprofile.rest.client.inject.RestClient
+import org.soframel.health.covid.client.CoronavirusAPIFrance
 import org.soframel.health.covid.model.CovidElasticData
 import org.soframel.health.covid.model.ElasticVictim
 import org.soframel.health.covid.model.Gender
 import org.soframel.health.covid.model.french.FrenchCovidDailyData
 import javax.enterprise.context.ApplicationScoped
+import javax.inject.Inject
 
 
 @ApplicationScoped
 class FrenchDataElasticMapper: DailyDataMapper<FrenchCovidDailyData>{
 
     val POPULATION_FRANCE: Long=66524000
-    //Régions
-    val POPULATION_ILEDEFRANCE: Long=12210000
-    val POPULATION_AUVERGNERHONEALPES: Long=7948287
-    val POPULATION_PACA: Long=5059000
 
-    //Départements
-    val POPULATION_PARIS: Long=2187526
-    val POPULATION_RHONE: Long=1882000
-    val POPULATION_BOUCHESDURHONE: Long=2035000
-    val POPULATION_VAUCLUSE: Long=563751
+    var departmentPopulation=FrenchDepartmentPopulation()
 
 
     override fun map(data: FrenchCovidDailyData): CovidElasticData{
@@ -55,28 +50,16 @@ class FrenchDataElasticMapper: DailyDataMapper<FrenchCovidDailyData>{
 
     /**
      * compute additional values based on departement/region populations.
-     * done for the regions below only:
-    département Rhône: DEP-69
-    région auvergne rhone alpes: REG-84
-    région ile de france: REG-11
-    paris: DEP-75
-    region PACA: REG-93
-    departement bouches-du-rhône: DEP-13
-    departement vaucluse: DEP-84
-
+     *
      */
     fun computeAdditionalValuesFromPopulation(code: String, edata: CovidElasticData){
-            var population: Long=0
-            when(code){
-                "FRA" -> population=POPULATION_FRANCE
-                "DEP-69" -> population=POPULATION_RHONE
-                "DEP-75" -> population=POPULATION_PARIS
-                "DEP-13" -> population=POPULATION_BOUCHESDURHONE
-                "DEP-84" -> population=POPULATION_VAUCLUSE
-                "REG-84" -> population=POPULATION_AUVERGNERHONEALPES
-                "REG-11" -> population=POPULATION_ILEDEFRANCE
-                "REG-93" -> population=POPULATION_PACA
-            }
+        var population=0L
+        if(code.equals("FRA")){
+            population=POPULATION_FRANCE
+        }
+        else {
+            population = departmentPopulation.getDepartmentPopulation(code)
+        }
 
             if(population>0) {
                 edata.computeAdditionalValues(population)

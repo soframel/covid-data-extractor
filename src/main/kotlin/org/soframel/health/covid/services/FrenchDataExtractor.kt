@@ -37,7 +37,7 @@ class FrenchDataExtractor {
 		logger.info("loaded "+ dataList.size +" entries")
 
 
-		val shortList=this.removeDoubles((dataList))
+		val shortList=this.filterData((dataList))
 		logger.info("kept "+shortList.size+" entries, from sources")
 		//shortList.forEach{print(it.sourceType)}
 		elasticSender.serializeAndSendBulk(mapper.map(shortList))
@@ -48,7 +48,7 @@ class FrenchDataExtractor {
 		val dataList=result.allFranceDataByDate;
 		logger.info("loaded "+ dataList.size +" entries for day "+day)
 		if(dataList.size>0){
-			val shortList=this.removeDoubles((dataList))
+			val shortList=this.filterData((dataList))
 			logger.info("kept "+shortList.size+" entries")
 			//shortList.forEach{print(it.sourceType)}
 			elasticSender.serializeAndSendBulk(mapper.map(shortList))
@@ -73,11 +73,18 @@ class FrenchDataExtractor {
 		this.extractFrenchDataSinceStartDate(date)
 	}
 
+
+	fun filterData(list: List<FrenchCovidDailyData>): List<FrenchCovidDailyData>{
+		//keep departments and not regions
+		val list2= list.filter { it.code.equals("FRA") || it.code.startsWith("DEP-") }
+		return this.removeDoubles(list2)
+	}
+
 	/**keep most official data when there is a choice **/
 	fun removeDoubles(list: List<FrenchCovidDailyData>): List<FrenchCovidDailyData>{
 		val map=HashMap<String,MutableList<FrenchCovidDailyData>>()
 		for(data in list){
-			if(!data.code.equals("Monde")) { //do not keep world data, it is too incomplete in this dataset
+			if(!data.code.equals("Monde") && !data.code.equals("World")) { //do not keep world data, it is too incomplete in this dataset
 				var regionList = map.get(data.code)
 				if (regionList != null) {
 					regionList.add(data)

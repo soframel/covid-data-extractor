@@ -4,9 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.readValue
 import org.apache.commons.io.IOUtils
+import org.eclipse.microprofile.rest.client.inject.RestClient
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.soframel.health.covid.mappers.FrenchDataElasticMapper
+import org.soframel.health.covid.mappers.FrenchDepartmentPopulation
 import org.soframel.health.covid.model.CovidElasticData
 import org.soframel.health.covid.model.french.FrenchCovidDailyData
 import org.soframel.health.covid.model.french.FrenchResult
@@ -18,7 +20,9 @@ import javax.inject.Inject
 
 class FrenchDataElasticMapperTestCase: AbstractCovidDataExtractorTestCase() {
 
-    var mapper= FrenchDataElasticMapper()
+    var mapper=FrenchDataElasticMapper()
+    var departmentPopulation=FrenchDepartmentPopulation()
+
 
     @Test
     fun testRegionData(){
@@ -101,12 +105,9 @@ class FrenchDataElasticMapperTestCase: AbstractCovidDataExtractorTestCase() {
         edata.totalCases=200000
 
         mapper.computeAdditionalValuesFromPopulation("DEP-69", edata)
-        var expected: Long=20000000000/mapper.POPULATION_RHONE
+        var expected: Long=20000000000/departmentPopulation.getDepartmentPopulation("DEP-69")
         assertEquals(expected, edata.totalCasesPer100kInhabitants)
 
-        mapper.computeAdditionalValuesFromPopulation("REG-93", edata)
-        expected=20000000000/mapper.POPULATION_PACA
-        assertEquals(expected, edata.totalCasesPer100kInhabitants)
 
         mapper.computeAdditionalValuesFromPopulation("FRA", edata)
         expected=20000000000/mapper.POPULATION_FRANCE
