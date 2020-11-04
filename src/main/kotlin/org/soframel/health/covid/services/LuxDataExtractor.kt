@@ -124,7 +124,7 @@ class LuxDataExtractor {
 
     fun parseLine(line: String): LuxCovidDailyData{
         val data=LuxCovidDailyData()
-        val tokenizer=StringTokenizer(line, ",")
+        val tokenizer=StringTokenizer(line, ";")
         val dateString=tokenizer.nextToken()
         data.date= LocalDate.parse(dateString, dateFormatter)
         data.soinsNormaux=parseInt(tokenizer.nextToken())
